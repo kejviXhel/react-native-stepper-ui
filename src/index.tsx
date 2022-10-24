@@ -134,6 +134,7 @@ const Stepper: FC<StepperProps> = (props) => {
         <View
           style={{
             flexDirection: 'row',
+            justifyContent: 'center',
           }}
         >
           {active !== 0 && (
