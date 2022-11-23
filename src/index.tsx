@@ -24,6 +24,7 @@ export interface StepperProps {
   buttonStyle?: ViewStyle;
   buttonTextStyle?: TextStyle;
   showButton?: boolean;
+  disabled?: boolean;
 }
 
 const search = (keyName: number, myArray: number[]): boolean => {
@@ -47,6 +48,7 @@ const Stepper: FC<StepperProps> = (props) => {
     buttonStyle,
     buttonTextStyle,
     showButton = true,
+    disabled
   } = props;
   const [step, setStep] = useState<number[]>([0]);
   const pushData = (val: number) => {
@@ -157,6 +159,7 @@ const Stepper: FC<StepperProps> = (props) => {
                   backgroundColor: '#a1a1a1',
                 },
               ]}
+              disabled={disabled}
               onPress={() => {
                 // removeData();
                 onBack();
@@ -177,6 +180,7 @@ const Stepper: FC<StepperProps> = (props) => {
                 },
                 buttonStyle,
               ]}
+              disabled={disabled}
               onPress={() => {
                 // pushData(active + 1);
                 onNext();
@@ -196,6 +200,7 @@ const Stepper: FC<StepperProps> = (props) => {
                 },
                 buttonStyle,
               ]}
+              disabled={disabled}
               onPress={() => onFinish()}
             >
               <Text style={[{ color: 'white' }, buttonTextStyle]}>{onFinishiButtonTitle}</Text>
